@@ -1,0 +1,28 @@
+#!/usr/bin/env lua
+
+print("Welcome to the Date_Detective!")
+print("Your friendly neighborhood Timestamp Generator!")
+time = os.date("*t")
+print("The current time is: ", ("%02d:%02d:%02d"):format(time.hour,time.min, time.sec))
+print("Timestamps prior to January 1, 1970 will be negative.")
+
+repeat
+  function D_D(Year, Month, Day, Hour, Minute)
+    io.write("Input Year (YYYY): ")
+    local myYear = io.read()
+    io.write("Input Month (MM): ")
+    local myMonth = io.read()
+    io.write("Input Day (DD): ")
+    local myDay = io.read()
+    io.write("Input Hour (HH): ")
+    local myHour = io.read()
+    io.write("Input Minute (MM): ")
+    local myMinute = io.read()
+    local myTimeStamp = os.time({year=myYear, month=myMonth, day=myDay, hour=myHour, minute=myMinute})
+    print(myTimeStamp)
+    print(os.date("%c", myTimeStamp))
+    print("Thanks for using the Date_Detective!")
+    print("")
+  end
+D_D(myYear, myMonth, myDay, myHour, myMinute)
+until (myYear == "0")
